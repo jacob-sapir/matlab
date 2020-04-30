@@ -1,0 +1,2 @@
+folderName = 'newFolder';
+mkdir(folderName);
