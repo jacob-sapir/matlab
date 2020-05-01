@@ -1,63 +1,43 @@
 function [newElements removedElements] = newOld(oldList, newList)
 
-newElements = [];
-removedElements = [];
-% check that no name occurs twice in the old list
-for i = 1:length(oldList)
-    nameLoop1 = oldList(i);
-    for j = (i+1):length(oldList)
-        nameLoop2 = oldList(j);
-        if strcmp(nameLoop1, nameLoop2) > 0
-            error('The same name occurs twice in the old list');
-        end
-    end
+% check that no name occurs twice in the old and new lists 
+checkElementRedundancy(oldList);
+checkElementRedundancy(newList);
+referenceList = oldList; % look for elements added to the new list relative to the old one
+newElements = getAddedElements(referenceList, newList);
+referenceList = newList; % look for elements added to the old list relative to the new one
+removedElements = getAddedElements(referenceList, oldList);
+
 end
 
-% check that no name occurs twice in the new list
-for i = 1:length(newList)
-    nameLoop1 = newList(i);
-    for j = (i+1):length(newList)
-        nameLoop2 = newList(j);
-        if strcmp(nameLoop1, nameLoop2) > 0
-            error('The same name occurs twice in the new list');
-        end
-    end
-end
+function addedElements = getAddedElements(referenceList, list)
 
-% look for new elements added to newList relative to the old list 
-for i = 1:length(newList)
-    notNew = 0;
-    elementNewList = newList(i);
-    for j = 1: length(oldList)
-        elementOldList = oldList(j);
-        if strcmp(elementNewList, elementOldList) > 0
-            % if an element in the new list is found in the old one, it is 
-            % not new
-            notNew = 1;
+addedElements = [];
+for i = 1:numel(list)
+    notAdded = 0;
+    elementCandidate = list(i);
+    for j = 1:numel(referenceList)
+        elementReferenceList = referenceList(j);
+        if strcmp(elementCandidate, elementReferenceList)
+            notAdded = 1; % if an element in the list is found in the reference one, it is not new
             break
         end
     end
-    if ~notNew
-        % if the element is new, add it to the list
-        newElements = [newElements ; elementNewList];
+    if ~notAdded
+        addedElements = [addedElements; elementCandidate];
     end
 end
 
+end
 
-% look for elements removed from newList relative to the new list
-for i = 1:length(oldList)
-    notRemoved = 0;
-    elementOldList = oldList(i);
-    for j = 1:length(newList)
-        elementNewList = newList(j);
-        if strcmp(elementNewList, elementOldList) > 0
-            notRemoved = 1;
-            break
-        end
-    end
-    if ~notRemoved
-        % if the element has been removed, add it to the list
-        removedElements = [removedElements ; elementOldList];
+function checkElementRedundancy(list)
+
+for i = 1:numel(list)
+    nameLoop1 = list(i);
+    for j = (i+1):numel(list)
+        nameLoop2 = list(j);
+        notARedundancy = ~strcmp(nameLoop1, nameLoop2);
+        assert(notARedundancy, 'The same name occurs twice in a list');
     end
 end
 
