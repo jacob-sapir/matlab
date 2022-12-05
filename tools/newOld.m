@@ -19,7 +19,7 @@ for i = 1:numel(list)
     for j = 1:numel(referenceList)
         elementReferenceList = referenceList(j);
         if strcmp(elementCandidate, elementReferenceList)
-            notAdded = 1; % if an element in the list is found in the reference one, it is not new
+            notAdded = 1; % if an element in is found in the reference list, it is not new
             break
         end
     end

@@ -1,0 +1,10 @@
+\definecolor{colorTblHeader}{rgb}{0.8,0.8, 0.8}
+            {\scriptsize
+              \begin{longtable}{|p{0.348\textwidth}|p{0.522\textwidth}|}
+                \hline
+   	        \multicolumn{1}{|c|}{\cellcolor{colorTblHeader} \textbf{Name}} & \multicolumn{1}{|c|}{\cellcolor{colorTblHeader} \textbf{Description}}\\ \hline
+   	        firstWordInList\\_TO\\_BE\\_DEFINED & secondWordInList\\_TO\\_BE\\_DEFINED\\ \hline
+   	        thirdWordInList\\_TO\\_BE\\_DEFINED & fourthWordInList\\_TO\\_BE\\_DEFINED\\ \hline
+              \end{longtable}
+            }
+

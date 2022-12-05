@@ -1,0 +1,1 @@
+list = ['firstWordInList'; 'secondWordInList'; 'thirdWordInList'];

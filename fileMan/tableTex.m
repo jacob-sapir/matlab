@@ -1,21 +1,23 @@
 function tableTex(fid, table, header, colorHeader, forcedSize, fontSize)
 
-assert(size(table, 2)==numel(header), 'The header of the table is not the same size as the table.');
-assert(size(table, 2)==numel(forcedSize), 'The forced size is not the same size as the table.');
+assert(size(table, 2)==numel(header), ...
+    'The header of the table is not the same size as the table.');
+assert(size(table, 2)==numel(forcedSize), ...
+    'The forced size is not the same size as the table.');
 
 column = [];
 for i = 1:numel(forcedSize)
     column = [column 'p{' num2str(forcedSize(i)) '\textwidth}|'];
 end
-
 red = num2str(colorHeader(1));
 green = num2str(colorHeader(2));
 blue = num2str(colorHeader(3));
 fprintf(fid, '%s', ['\definecolor{colorTblHeader}{rgb}{' red ',' green ', ' blue '}' char(10)]);
-fprintf(fid, '%s', ['{\' fontSize char(10) '\begin{longtable}{|' column '}' char(10) '\hline' char(10)]);
-
+fprintf(fid, '%s', ...
+    ['{\' fontSize char(10) '\begin{longtable}{|' column '}' char(10) '\hline' char(10)]);
 % format the header and write the table
-formattedHeader = [{['\multicolumn{1}{|c|}{\cellcolor{colorTblHeader} \textbf{' header{1} '}}']} ...
+formattedHeader = [...
+    {['\multicolumn{1}{|c|}{\cellcolor{colorTblHeader} \textbf{' header{1} '}}']} ...
     {['\multicolumn{1}{|c|}{\cellcolor{colorTblHeader} \textbf{' header{2} '}}']}];
 completeTable = [formattedHeader; table];
 writeArray(fid, completeTable);

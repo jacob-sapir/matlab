@@ -11,7 +11,7 @@ data = columnSelected;
 fullPath = pwd; % pwd is the path to the current folder 
 % start writing on the row rowOffset+1 (rowOffset = 0 => first row of the Excel File) 
 rowOffset = 3;
-% start writing on the column columnOffset+1 (columnOffset = 0 => first column of the Excel File) 
+% start writing on the column columnOffset+1 (columnOffset = 0 => first column) 
 columnOffset = 5;
 store_matrix(filename, sheetNumber, data, fullPath, rowOffset, columnOffset);
 winopen(filename)

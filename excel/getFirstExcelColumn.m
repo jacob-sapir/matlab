@@ -5,6 +5,6 @@ function firstColumn = getFirstExcelColumn(filename, sheetNumber)
 
 % get all the data stored in the first column
 columnNumber = 1;
-firstColumn = txt(1:end, columnNumber); % 1:end means you select the rows from the first to the last
+firstColumn = txt(1:end, columnNumber); % 1:end = select rows from the 1st to the last
 
 end

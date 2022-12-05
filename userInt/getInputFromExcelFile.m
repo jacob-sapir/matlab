@@ -19,7 +19,7 @@ for i = 1:numel(descriptionColumn)
 end
 
 % generate an error if an argument has not been found
-argumentsFound = ~((str2num(firstArgument)==-1)||(str2num(secondArgument)==-1));
+argumentsFound=~((str2num(firstArgument)==-1)||(str2num(secondArgument)==-1));
 assert(argumentsFound, ['Issue in ' fileName ', an argument has not been found.']);
 
 end

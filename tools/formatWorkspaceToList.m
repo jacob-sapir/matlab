@@ -4,7 +4,7 @@ variable3 = 'thirdWordInList';
 variable4 = 'fourthWordInList';
 
 % get all parameters that start with "variable" 
-list = whos('variable*')
+list = whos('variable*');
 
 % access the second variable in the list
 list(2).name

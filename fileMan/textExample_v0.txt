@@ -1,0 +1,9 @@
+Title: currentTitle 
+Creation date: currentDate
+
+Description of file: This file attempts to be an example to understand how to modify a text file automatically.
+
+Simulink model information to update: the simulink model can run 
+number of bugs detected: no bug currently detected
+
+

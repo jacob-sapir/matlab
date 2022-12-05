@@ -41,7 +41,7 @@ function s = dec2base27(d)
 %       dec2base(1) returns 'A'
 %       dec2base(26) returns 'Z'
 %       dec2base(27) returns 'AA'
-% -------------------------------------------------------
+% -----------------------------------------------
 
 d = d(:);
 if d ~= floor(d) || any(d(:) < 0) || any(d(:) > 1/eps)
@@ -62,7 +62,7 @@ function d = base27dec(s)
 %       base27dec('A') returns 1
 %       base27dec('Z') returns 26
 %       base27dec('IV') returns 256
-% -------------------------------------------------------
+% -----------------------------------------------
 
 if length(s) == 1
    d = s(1) -'A' + 1;

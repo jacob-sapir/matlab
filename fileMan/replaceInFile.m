@@ -23,6 +23,6 @@ end
 fclose(fin);
 fclose(fout);
 
-assert(previousTxtNotFound, ['Error occured, ' oldText ' has not been found in ' fileName ' file.']);
+assert(previousTxtNotFound, ['Error occured, ' oldText ' not found in ' fileName ' file.']);
 
 end
